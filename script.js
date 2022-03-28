@@ -3,7 +3,9 @@
 // 1) create an array with all possible character types: Uppercase, Lowercase, numbers, and symbols stored in a variable
 
 const values =
-	"0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*(){}[]=<>,.ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*(){}[]=<>,.ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  
+
 // let valuesArray = valuesString.split('');  //turned string to an array
 
 // console.log(valuesArray);
@@ -11,33 +13,40 @@ const values =
 
 // 2) create a global variable called "pwLength" with a number between 10 and 18
 
+
 let pwLength = +prompt(
-	"How many charters would you like to use? The max character limit is 50. Once you enter the amount of charters click Generate."
-);
+  "Input how many charters would you like to use? The max character limit is 50. Once you enter the amount of charters click Generate.");
+	
+while (pwLength == "" || isNaN(pwLength)) {
+   pwLength = prompt(
+     "You did not enter any information pleaser try again")
+    }
+
+ 
+
 //===============================================================
 
 // 3) Using the above array and password length variable, create a random password using aZI
 //    for loop inside of a function called "addNewPassword" either saved as an arrow function
 //    variable or a traditional function
 
-let addNewPassword = () => {
-	let password = "";
-	for (let i = 1; i <= pwLength; i++) {
-		if (pwLength <= 50) {
-			password += values.charAt(Math.floor(Math.random() * values.length - 1));
-		} else {
-			alert(
-				`You entered ${pwLength} which is ${
-					pwLength - 50
-				} over the max charater limit. Please try again.`
-			);
-			pwLength = +prompt(
-				"How many charters would you like to use? The max character limit is 50. Once you enter the amount of charters click Generate."
-			);
-		}
-	}
-	return `${password}`;
-};
+  let addNewPassword = () => {
+    let password = " ";
+    for (let i = 1; i <= pwLength; i++) {
+      if (pwLength <= 50) {
+        password += values.charAt(Math.floor(Math.random() * values.length - 1));
+      } else {
+        alert(
+          `You entered ${pwLength} which is ${pwLength - 50
+          } over the max characters limit. Please try again.`
+        );
+        pwLength = +prompt(
+          "Input how many characters would you like to use? The max character limit is 50. Once you enter the amount of characters click Generate."
+        );
+      }
+    }
+    return `${password}`;
+  };
 
 // ========= ⬇ DO NOT TOUCH THIS CODE ⬇ ===================================
 
